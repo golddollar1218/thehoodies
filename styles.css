@@ -143,9 +143,18 @@ a {
   color: var(--accent);
 }
 
+.bar > .btn {
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
 @media (max-width: 720px) {
   .nav {
     display: none;
+  }
+
+  .bar > .btn {
+    margin-left: auto;
   }
 }
 
