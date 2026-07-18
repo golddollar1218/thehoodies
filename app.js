@@ -214,4 +214,85 @@
       }
     });
   }
+
+  /* scroll reveal */
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && reveals.length) {
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -40px 0px" }
+    );
+    reveals.forEach(function (el) {
+      io.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) {
+      el.classList.add("in");
+    });
+  }
+
+  /* floating embers */
+  var canvas = document.getElementById("embers");
+  if (canvas && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var c = canvas.getContext("2d");
+    var particles = [];
+    var w = 0;
+    var h = 0;
+    var raf = 0;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      var count = Math.min(48, Math.floor((w * h) / 38000));
+      particles = [];
+      for (var i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 2.2 + 0.4,
+          vy: -(Math.random() * 0.45 + 0.15),
+          vx: (Math.random() - 0.5) * 0.25,
+          a: Math.random() * 0.45 + 0.15,
+        });
+      }
+    }
+
+    function tick() {
+      c.clearRect(0, 0, w, h);
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.y < -10) {
+          p.y = h + 10;
+          p.x = Math.random() * w;
+        }
+        if (p.x < -10) p.x = w + 10;
+        if (p.x > w + 10) p.x = -10;
+        c.beginPath();
+        c.fillStyle = "rgba(61,255,122," + p.a + ")";
+        c.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        c.fill();
+      }
+      raf = requestAnimationFrame(tick);
+    }
+
+    resize();
+    tick();
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+      } else {
+        tick();
+      }
+    });
+  }
 })();
