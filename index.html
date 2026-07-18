@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>$HOODIES — The Cult of RobinHood</title>
+  <meta name="description" content="They took from us. We take it back — one hood at a time. Hood your pfp. Join the cult of $HOODIES on Robinhood Chain." />
+  <meta property="og:title" content="$HOODIES — The Cult of RobinHood" />
+  <meta property="og:description" content="No dues. No doxx. One rite of passage: hood your pfp." />
+  <meta property="og:image" content="assets/banner.png" />
+  <meta name="theme-color" content="#061208" />
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="geo-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="shell bar">
+      <a class="mark" href="#top"><span>$</span>HOODIES</a>
+      <nav class="nav">
+        <a href="#initiation">Initiation</a>
+        <a href="#creed">Creed</a>
+        <a href="#ledger">Ledger</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/banner.png" alt="" class="hero-banner" />
+        <div class="hero-veil"></div>
+        <div class="hero-cut"></div>
+      </div>
+      <div class="shell hero-copy">
+        <p class="brand-tag">The Cult of RobinHood</p>
+        <h1 class="brand"><span>$</span>HOODIES</h1>
+        <p class="lede-hero">They took from us. We take it back — one hood at a time.</p>
+        <div class="cta-row">
+          <a class="btn btn-fill" href="#initiation">Don the hood</a>
+          <a class="btn btn-ghost" href="https://t.me/TheHoodiesCult" target="_blank" rel="noopener">Follow X</a>
+        </div>
+      </div>
+      <div class="hero-edge" aria-hidden="true"></div>
+    </section>
+
+    <section id="initiation" class="section">
+      <div class="shell">
+        <div class="section-head">
+          <span class="index">01</span>
+          <h2>The Initiation</h2>
+          <p class="lede">Drop your pfp in the frame and the forge does the rest — the official hoodie, glowing feather, green aura. Your image is sent securely to the forge just long enough to generate, never stored.</p>
+        </div>
+
+        <div class="forge">
+          <div class="forge-stage" id="stage">
+            <div class="corner tl"></div>
+            <div class="corner tr"></div>
+            <div class="corner bl"></div>
+            <div class="corner br"></div>
+            <canvas id="cv" width="1024" height="1024" aria-label="Hooded pfp preview"></canvas>
+            <div class="drop-hint">drag &amp; drop · click to browse · paste</div>
+            <img src="assets/logo.png" alt="" id="hoodimg" hidden />
+          </div>
+
+          <div class="forge-panel">
+            <h3>Hood your pfp</h3>
+            <p>Upload, generate, download. The AI redraws your pfp in the official $HOODIES hoodie — hood up, glowing feather on the chest, electric green aura. About 10 seconds per forge.</p>
+            <div class="btn-row">
+              <button type="button" class="btn btn-fill" id="pick">Choose image</button>
+              <button type="button" class="btn btn-accent" id="ai" disabled>Generate hoodie</button>
+            </div>
+            <p class="ai-note" id="aimsg" hidden></p>
+            <div class="btn-row">
+              <button type="button" class="btn btn-ghost" id="dl" disabled>Download pfp</button>
+            </div>
+            <input type="file" id="file" accept="image/*" hidden />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="creed" class="section section-alt">
+      <div class="shell">
+        <div class="section-head">
+          <span class="index">02</span>
+          <h2>The Creed</h2>
+          <p class="lede">Three vows. Sworn once, under the hood.</p>
+        </div>
+        <div class="creed-grid">
+          <article class="vow">
+            <span class="vow-num">I</span>
+            <h3>Take from the rich</h3>
+            <p>The market has fattened the few for long enough. The cult rides at dawn, and at every candle after.</p>
+          </article>
+          <article class="vow">
+            <span class="vow-num">II</span>
+            <h3>Give to the holders</h3>
+            <p>No insiders, no nobles, no sheriff's cut. What the cult wins, the cult keeps — together.</p>
+          </article>
+          <article class="vow">
+            <span class="vow-num">III</span>
+            <h3>Never remove the hood</h3>
+            <p>The hood is the flag. Wear it in the group, wear it on the timeline, wear it through the drawdown.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ledger" class="section">
+      <div class="shell">
+        <div class="section-head">
+          <span class="index">03</span>
+          <h2>The Ledger</h2>
+          <p class="lede">Every outlaw band keeps its books in the open.</p>
+        </div>
+        <dl class="ledger">
+          <div class="row">
+            <dt>Ticker</dt>
+            <dd>$HOODIES</dd>
+          </div>
+          <div class="row">
+            <dt>Chain</dt>
+            <dd>Robinhood Chain (Ethereum L2)</dd>
+          </div>
+          <div class="row">
+            <dt>Contract</dt>
+            <dd>
+              <button type="button" class="ca" id="cabtn" title="Tap to copy"
+                data-ca="0xcomingsoon">0xcomingsoon</button>
+            </dd>
+          </div>
+          <div class="row">
+            <dt>Supply</dt>
+            <dd>1,000,000,000</dd>
+          </div>
+          <div class="row">
+            <dt>Taxes</dt>
+            <dd>0 / 0</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section section-ride">
+      <div class="shell ride">
+        <div class="ride-visual" aria-hidden="true">
+          <img src="assets/logo.png" alt="" />
+        </div>
+        <div class="ride-copy">
+          <h2>Ride with us</h2>
+          <p class="lede">The merry band assembles.</p>
+          <div class="btn-row">
+            <a class="btn btn-ghost" href="https://x.com/THEHOODIES_X" target="_blank" rel="noopener">X / Twitter</a>
+            <a class="btn btn-ghost" href="https://dexscreener.com/robinhood/0xcomingsoon" target="_blank" rel="noopener">Chart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <p>$HOODIES is a meme coin with no intrinsic value and no expectation of financial return. Nothing here is financial advice. The Sheriff is always watching — do your own research.</p>
+      <a class="mark" href="#top"><span>$</span>HOODIES</a>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
